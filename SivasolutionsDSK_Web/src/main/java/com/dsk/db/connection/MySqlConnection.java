@@ -1,14 +1,13 @@
-package com.dsk.db.connections;
-
-import java.sql.Connection;
-
+package com.dsk.db.connection;
 import java.sql.DriverManager;
+import java.sql.Connection;
 import java.sql.SQLException;
 
-public class MySqlDBConnection {
-	private static MySqlDBConnection mysqldbconnection = new MySqlDBConnection();
+
+public class MySqlConnection {
+	private static MySqlConnection mysqlconnection = new MySqlConnection();
 	Connection connection;
-	private MySqlDBConnection() {
+	private MySqlConnection() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/dsk","root","Devi@0538");
@@ -20,12 +19,12 @@ public class MySqlDBConnection {
 		}
 	}
 	public static Connection getInstance() {
-		return mysqldbconnection.connection;
+		return mysqlconnection.connection;
 	}
 	
 
 	public static void main(String[] args) {
-		System.out.println(mysqldbconnection.getInstance());
+		System.out.println(mysqlconnection.getInstance());
 		
 	}
 
