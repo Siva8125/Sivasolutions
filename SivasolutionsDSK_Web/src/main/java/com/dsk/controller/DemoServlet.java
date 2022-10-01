@@ -22,27 +22,22 @@ public class DemoServlet extends HttpServlet{
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	System.out.println("form submitted on GET");
-	String employeeId = request.getParameter("employeeId");
-	String employeeName = request.getParameter("employeeName");
-	String employeeSalary = request.getParameter("employeeSalary");
-	double employeesalary1 =0.0;
-	try {
-	employeesalary1 = Double.parseDouble(employeeSalary);
-	} catch(Exception e) {
-	employeesalary1 =0.0;
-	}
+	String studentId = request.getParameter("studentId");
+	String firstName = request.getParameter("firstName");
+	
+	
 	Encapsulatedclass es = new Encapsulatedclass();
-	es.setId(Id);
-	es.setName(Name);
-	//es.setSalarybase(employeeSalary);
+	es.setId(studentId);
+	es.setName(firstName);
+	
 
 	WebImplementation we = new WebImplementation();
 	int result = we.Insertwithprepst(es);
-	HttpSession session = request.getSession();
+	HttpSession session = (HttpSession) request.getSession();
 	session.setAttribute("EmployeObject", es);
 
-	RequestDispatcher empservlet = request.getRequestDispatcher("/EmployeeData");
-	RequestDispatcher failure = request.getRequestDispatcher("Fail.html");
+	RequestDispatcher empservlet = (RequestDispatcher) request.getRequestDispatcher("/EmployeeData");
+	RequestDispatcher failure = (RequestDispatcher) request.getRequestDispatcher("Fail.html");
 	if(result>0) {
 	empservlet.forward(request, response);
 	} else {
