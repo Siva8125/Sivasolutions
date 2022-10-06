@@ -14,45 +14,19 @@ body {
 <title>Insert title here</title>
 </head>
 <body>
-<table align="center">
-<tr>
-<td>
+
 <h1 style="background-color:yellow;">New Registration</h1>
-</table></tr></td>
-<table align="right"cellpadding="10">
-<tr>
-<td><span style="colour : red">*</span>Student Name:
-<td><input type = "text" name = "Student Name">
-</td>
-</tr>
-<td><span style="colour : red">*</span>Father Name:
-<td><input type = "text" name = "Father Name">
-</td>
-</tr>
-<td><span style="colour : red">*</span>Mother Name:
-<td><input type = "text" name = "Mother Name">
-</td>
-</tr>
-<td><span style="colour : red">*</span>Mobile Number:
-<td><input type = "text" name = "Mobile Number">
-</td>
-</tr>
-<td><span style="colour : red">*</span>Email Id:
-<td><input type = "text" name = "Email Id">
-</td>
-</tr>
-<td><span style="colour : red">*</span>Address:
-<td><input type = "text" name = "Address">
-</td>
-</tr>
-<td><span style="colour : red">*</span>Education:
-<td><input type = "text" name = "Education">
-</td>
-</tr>
-<td><span style="colour : red">*</span>Age:
-<td><input type = "text" name = "Age">
-</td>
-</tr>
-</table>
+<form action="RegistrationServlet" method="get">
+    <span style="color: red">*</span>StudentId:
+    <input type="text" name="studentId">
+    
+    <span style="color: red">*</span>FirstName:
+    <input type="text" name="firstName">
+    
+  <span style="color: red">*</span>LastName:
+    <input type="text" name="lastName">
+    
+    <input type="submit"  value="register">
+    </form>
 </body>
 </html>

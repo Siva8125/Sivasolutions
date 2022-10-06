@@ -1,16 +1,15 @@
 package com.dsk.db.connection;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.dsk.bean.Studentbean;
-import com.dsk.businesslogic.StudentIdGenerator;
-import com.dsk.constants.StudentConstants;
-import com.dsk.session.SharedObject;
-
+import com.dsk.db.connection.MySqlConnection;
+import com.mysql.cj.MysqlConnection;
 public class DSKDaoImplementation {
 	Statement stat;
 	Connection connection;
@@ -20,39 +19,15 @@ public class DSKDaoImplementation {
 	public DSKDaoImplementation() {
 		connection=MySqlConnection.getInstance();
 	}
-	public boolean duplicateData(Studentbean studentbean) {
-		boolean dp=false;
-		studentId =studentbean.getStudentId();
-		if(studentId==null){
-			studentId=StudentIdGenerator.getStudentId();
-		}
-		String query="select * from Studentbean where StudentId=?";
-		try {
-			pstat=connection.prepareStatement(query);
-			pstat.setString(1,studentId);
-			resultset=pstat.executeQuery();
-			while(resultset.next()) {
-				 dp=true;
-			}
-		}catch(SQLException e){
-			e.printStackTrace();
-		}
-		studentbean.setStudentId(studentId);
-		return dp;
-	}
+	
 	
 	public int InsertStudentData(Studentbean studentbean) {
 		int result = 0;
-		String query="insert into Studentbean values("+studentbean.getStudentId()+",'"+studentbean.getFirstName()+"',"+",'"+studentbean.getLastName()+"',"+",'"+studentbean.getFatherName()+"',"+",'"+studentbean.getGender()+"',"+studentbean.getDob()+",'"+studentbean.getEmailId()+"',"+studentbean.getMobileNumber()+studentbean.getAlternatemobilenumber()+studentbean.getAadharNo()+",'"+studentbean.getPermanentAddress()+"',"+",'"+studentbean.getPresentaddress()+"',"+",'"+studentbean.getSchoolName()+"',"+studentbean.getTenthPassedOut()+",'"+studentbean.getIntermediateCollegeName()+"',"+studentbean.getInterPassedOut()+",'"+studentbean.getGraduationdetails()+"',"+studentbean.getGraduationpassedout()+",'"+studentbean.getBranch()+"',"+",'"+studentbean.getUniversity()+"',"+",'"+studentbean.getCourseName()+"',"+studentbean.getCoursefee()+",'"+studentbean.getBankname()+"',"+studentbean.getBankaccNo()+",'"+studentbean.getIfsccode()+"',"+studentbean.getPaymentperiod()+",'"+studentbean.getPaymentstatus()+"',"+",'"+studentbean.getAcademylocation()+"')";
+		//String query="insert into Studentbean values("+studentbean.getStudentId()+",'"+studentbean.getFirstName()+"',"+",'"+studentbean.getLastName()+"',"+",'"+studentbean.getFatherName()+"',"+",'"+studentbean.getGender()+"',"+studentbean.getDob()+",'"+studentbean.getEmailId()+"',"+studentbean.getMobileNumber()+studentbean.getAlternatemobilenumber()+studentbean.getAadharNo()+",'"+studentbean.getPermanentAddress()+"',"+",'"+studentbean.getPresentaddress()+"',"+",'"+studentbean.getSchoolName()+"',"+studentbean.getTenthPassedOut()+",'"+studentbean.getIntermediateCollegeName()+"',"+studentbean.getInterPassedOut()+",'"+studentbean.getGraduationdetails()+"',"+studentbean.getGraduationpassedout()+",'"+studentbean.getBranch()+"',"+",'"+studentbean.getUniversity()+"',"+",'"+studentbean.getCourseName()+"',"+studentbean.getCoursefee()+",'"+studentbean.getBankname()+"',"+studentbean.getBankaccNo()+",'"+studentbean.getIfsccode()+"',"+studentbean.getPaymentperiod()+",'"+studentbean.getPaymentstatus()+"',"+",'"+studentbean.getAcademylocation()+"')";
+		String query="insert into Studentbean values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
 		try {
-			while(duplicateData(studentbean)) {
-				studentId=null;
-				studentbean.setStudentId(studentId);
-				duplicateData(studentbean);
-			}
-							
 			pstat=connection.prepareStatement(query);
-			SharedObject.putInToSession(StudentConstants.STUDENT_ID, studentId);
 			pstat.setString(1,studentbean.getStudentId());
 			pstat.setString(2,studentbean.getFirstName());
 			pstat.setString(3,studentbean.getLastName());
@@ -81,7 +56,8 @@ public class DSKDaoImplementation {
 			pstat.setInt(26,studentbean.getPaymentperiod());
 			pstat.setString(27,studentbean.getPaymentstatus());
 			pstat.setString(28,studentbean.getAcademylocation());
-			result=stat.executeUpdate(query);
+			result=pstat.executeUpdate();
+						
 		}
 			
 		catch (Exception e) {
@@ -95,6 +71,10 @@ public class DSKDaoImplementation {
 
 	public static void main(String[] args) {
 		
+	}
+	public int Insertwithprepst(Studentbean sb) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

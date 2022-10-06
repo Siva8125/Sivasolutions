@@ -1,7 +1,6 @@
 package com.dsk.bean;
-import java.io.Serializable;
 
-public class Studentbean implements Serializable {
+public class Studentbean  {
 	private String studentId;
 	private String firstName;
 	private String lastName;
