@@ -2,6 +2,7 @@ package com.dsk.controller;
 
 import java.io.IOException;
 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,16 +14,14 @@ import com.dsk.db.connection.DSKDaoImplementation;
 
 public class DeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public DeleteServlet() {
+		super();
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Submitted on GET");
 		String studentId=request.getParameter("StudentId");
-		int id = 0;
-		try {
-			id = Integer.parseInt(studentId);
-		}catch(Exception e) {
-			id = 0;
-		}
+		
 		/*String firstName = request.getParameter("firstName");
 		String LastName = request.getParameter("lastName");
 		String FatherName = request.getParameter("fatherName");

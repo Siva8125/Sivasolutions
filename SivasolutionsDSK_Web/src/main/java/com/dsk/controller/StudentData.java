@@ -33,7 +33,7 @@ public class StudentData extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.print("<html><body><table>");
 		out.print("<tr><th>StudentId</th><th>FirstName</th><th>LastName</th></tr>");
-		out.print("<td>"+emp.getStudentId()+"</td>"+"<td>"+emp.getFirstName()+"</td>"+"<td>"+emp.getLastName()+"</td>");
+		out.print("<tr><td>"+emp.getStudentId()+"</td>"+"<td>"+emp.getFirstName()+"</td>"+"<td>"+emp.getLastName()+"</td></tr>");
 		out.print("<button>");
 		out.print("<a href='index.html'>Home</a>");
 		out.print("</button>");
