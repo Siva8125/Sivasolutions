@@ -31,7 +31,7 @@ public class SearchServlet extends HttpServlet{
 		DSKDaoImplementation we = new DSKDaoImplementation();
 		StudentBean ss = we.SearchData(StudentId);
 		HttpSession session = request.getSession();
-		session.setAttribute("StudentData",ss);
+		session.setAttribute("StudentBean",ss);
 		
 		RequestDispatcher success = request.getRequestDispatcher("/StudentData");
 		RequestDispatcher failure = request.getRequestDispatcher("fail.html");

@@ -25,7 +25,7 @@ public class FetchServlet extends HttpServlet{
 		List<StudentBean> result = dao.Fetch();
 
 		HttpSession session = request.getSession();
-		session.setAttribute("StudentData", result);
+		session.setAttribute("StudentBean", result);
 
 		RequestDispatcher req = request.getRequestDispatcher("view.jsp");
 		req.forward(request, response);

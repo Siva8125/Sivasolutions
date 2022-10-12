@@ -38,7 +38,7 @@ public class UpdateServlet extends HttpServlet{
 		DSKDaoImplementation we = new DSKDaoImplementation();
 		int result = we.UpdateData(sb);
 		
-		RequestDispatcher success = request.getRequestDispatcher("/UpdateData");
+		RequestDispatcher success = request.getRequestDispatcher("update success.html");
 		RequestDispatcher failure = request.getRequestDispatcher("update fail.html");
 		if(result>0) {
 		success.forward(request, response);
