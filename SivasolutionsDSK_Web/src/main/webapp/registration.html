@@ -1,36 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-body {
-  background-image: url('https://industrywired.b-cdn.net/wp-content/uploads/2020/06/Software-Companies.jpeg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
-  
-}
-</style>
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type = "text/javascript" src = "Registration.js"></script>
 </head>
 <body>
 
 <h1 style="background-color:yellow;">New Registration</h1>
 <form action="RegistrationServlet" method="get">
     <span style="color: red">*</span>StudentId:
-    <input type="text" name="StudentId">
+    <input type="text" name="StudentId" placeholder = "StudentId" id = "StudentId" onblur = "clearErrorMessage()" required>
+    <span id = "errorMsgStudentId" style = "color:red;"></span>
     
     <span style="color: red">*</span>FirstName:
-    <input type="text" name="FirstName">
+    <input type="text" name="FirstName" required>
         
     <span style="color: red">*</span>LastName:
-    <input type="text" name="LastName">
+    <input type="text" name="LastName" required>
     
     <span style="color: red">*</span>FatherName:
-    <input type="text" name="FatherName">
+    <input type="text" name="FatherName" required>
     
     <span style="color: red">*</span>Address:
-    <input type="text" name="Address">
+    <input type="text" name="Address" required>
     
     <input type="submit"  value="register">
     </form>
