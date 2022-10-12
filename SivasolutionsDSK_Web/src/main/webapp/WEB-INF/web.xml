@@ -66,4 +66,12 @@
 <servlet-name>SearchServlet</servlet-name>
 <url-pattern>/SearchServlet</url-pattern>
 </servlet-mapping>
+<servlet>
+<servlet-name>FetchServlet</servlet-name>
+<servlet-class>com.dsk.controller.FetchServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>FetchServlet</servlet-name>
+<url-pattern>/FetchServlet</url-pattern>
+</servlet-mapping>
 </web-app>
