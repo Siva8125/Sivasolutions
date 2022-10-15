@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>SivaHospital</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  <servlet>
+<servlet-name>Registration</servlet-name>
+<servlet-class>com.dsk.controller.Registration</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>Registration</servlet-name>
+<url-pattern>/Registration</url-pattern>
+</servlet-mapping>
+<servlet>
+<servlet-name>OPData</servlet-name>
+<servlet-class>com.dsk.controller.OPData</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>OPData</servlet-name>
+<url-pattern>/OPData</url-pattern>
+</servlet-mapping>
+<servlet>
+<servlet-name>Fetch</servlet-name>
+<servlet-class>com.dsk.controller.Fetch</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>Fetch</servlet-name>
+<url-pattern>/Fetch</url-pattern>
+</servlet-mapping>
+</web-app>
