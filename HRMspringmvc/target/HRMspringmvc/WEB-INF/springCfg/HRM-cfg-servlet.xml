@@ -13,6 +13,15 @@
 		<context:include-filter expression="org.springframework.stereotype.Controller"
 			type="annotation" />
 	</context:component-scan>
+	
+	<mvc:annotation-driven />
+	<mvc:default-servlet-handler />
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
+	<mvc:resources mapping="/images/**" location="/WEB-INF/images/" />
+	<mvc:resources mapping="/js/**" location="/WEB-INF/js/" />
+	
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/viewpages/" />
@@ -24,7 +33,7 @@
       <property name="driverClassName" value="com.mysql.jdbc.Driver" />  
       <property name="url" value="jdbc:mysql://localhost:3306/insurancedb" />  
       <property name="username" value="root" />  
-      <property name="password" value="root" />  
+      <property name="password" value="Devi@0538" />  
      </bean>  
 	
 	<bean id="sessionFactory"  
@@ -50,4 +59,7 @@
       
      <bean id="persistenceExceptionTranslationPostProcessor"  
       class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />  
+      
+      <bean id="daoRef" class="com.hrm.springmvc.entity.dao.DaoImplementation"/>
+	<bean id="serviceRef" class="com.hrm.springmvc.entity.service.DaoServiceImplementation"/>
  	</beans>

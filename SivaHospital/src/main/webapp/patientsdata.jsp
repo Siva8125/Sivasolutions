@@ -6,13 +6,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Patients Data</title>
+<title>Passengers Details</title>
 </head>
 <body>
-<h2 align ="center">Patients data</h2>
+<h2 align ="center">Passengers Details</h2>
 <table align="center">
 <%
-Object sessionObj = session.getAttribute("Patients");
+Object sessionObj = session.getAttribute("Passengers");
 if (sessionObj == null){
 out.print("No Data Found");
 } else {
@@ -30,15 +30,14 @@ for(Patients e : elist){
 <tr>
 <td><%=e.getPatientNumber()%></td>
       <td><%=e.getPatientName() %></td>
-      
-     </tr>
+           </tr>
 <%
 }
 }
 %>
 <tr>
 <td><button>
-<a href="index.html">Index</a></button></td>
+<a href="index.jsp">Index</a></button></td>
 </tr>
 </table>
 
